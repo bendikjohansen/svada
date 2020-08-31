@@ -1,0 +1,88 @@
+###
+# Create general svada
+POST https://localhost:5001/api/category
+Content-Type: application/json
+
+{
+  "name": "Generell Svada"
+}
+
+> {%
+client.global.set("categoryId", response.body.id)
+ %}
+
+###
+# Create word 0
+POST https://localhost:5001/api/category/{{categoryId}}/word
+Content-Type: application/json
+
+{
+  "content": "Gitt",
+  "sentencePosition": 0
+}
+
+###
+# Create word 1
+POST https://localhost:5001/api/category/{{categoryId}}/word
+Content-Type: application/json
+
+{
+  "content": "en integrert",
+  "sentencePosition": 1
+}
+
+###
+# Create word 2
+POST https://localhost:5001/api/category/{{categoryId}}/word
+Content-Type: application/json
+
+{
+  "content": "målsetting",
+  "sentencePosition": 2
+}
+
+###
+# Create word 3
+POST https://localhost:5001/api/category/{{categoryId}}/word
+Content-Type: application/json
+
+{
+  "content": "synliggjøres",
+  "sentencePosition": 3
+}
+
+###
+# Create word 4
+POST https://localhost:5001/api/category/{{categoryId}}/word
+Content-Type: application/json
+
+{
+  "content": "potensialet",
+  "sentencePosition": 4
+}
+
+###
+# Create word 5
+POST https://localhost:5001/api/category/{{categoryId}}/word
+Content-Type: application/json
+
+{
+  "content": "innenfor rammen av",
+  "sentencePosition": 5
+}
+
+###
+# Create word 6
+POST https://localhost:5001/api/category/{{categoryId}}/word
+Content-Type: application/json
+
+{
+  "content": "en samlet vurdering",
+  "sentencePosition": 6
+}
+
+###
+# Generate sentence
+GET https://localhost:5001/api/sentence/{{categoryId}}
+Content-Type: application/json
+

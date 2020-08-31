@@ -1,0 +1,45 @@
+###
+# List categories
+GET https://localhost:5001/api/category/1/word
+
+###
+# Create categories
+POST https://localhost:5001/api/category/1/word
+Content-Type: application/json
+
+{
+  "content": "Gitt",
+  "sentencePosition": 1
+}
+
+> {%
+client.global.set("location", response.headers.valueOf("Location"))
+ %}
+
+###
+# Read category by location
+GET {{location}}
+
+###
+# Read category by ID
+GET https://localhost:5001/api/category/1/word/1
+
+
+###
+# Update category by ID
+PUT https://localhost:5001/api/category/1/word/1
+Content-Type: application/json
+
+{
+  "Content": "Gitt",
+  "SentencePosition": 2
+}
+
+###
+# Delete by location
+DELETE {{location}}
+
+###
+# Delete by ID
+DELETE https://localhost:5001/api/category/1/word/1
+

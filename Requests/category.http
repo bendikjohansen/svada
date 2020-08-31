@@ -1,0 +1,43 @@
+###
+# List categories
+GET https://localhost:5001/api/category
+
+###
+# Create categories
+POST https://localhost:5001/api/category
+Content-Type: application/json
+
+{
+  "name": "Generell Svada"
+}
+
+> {%
+client.global.set("location", response.headers.valueOf("Location"))
+ %}
+
+###
+# Read category by location
+GET {{location}}
+
+###
+# Read category by ID
+GET https://localhost:5001/api/category/2
+
+
+###
+# Update category by ID
+PUT https://localhost:5001/api/category/1
+Content-Type: application/json
+
+{
+  "name": "Foo Bar",
+  "type": "Cool"
+}
+
+###
+# Delete by location
+DELETE {{location}}
+
+###
+# Delete by ID
+DELETE https://localhost:5001/2
